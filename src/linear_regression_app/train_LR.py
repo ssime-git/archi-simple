@@ -3,6 +3,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import numpy as np
 import joblib
+import pickle
 
 # Étape 2: Créer des données pour l'entrainement
 # Générer des données d'exemple
@@ -18,6 +19,9 @@ lin_reg = LinearRegression()
 lin_reg.fit(X_train, y_train)
 
 # Étape 4: Sauvegarder le modèle entraîné
-joblib.dump(lin_reg, 'linear_regression_model.pkl')
+#joblib.dump(lin_reg, 'linear_regression_model.pkl')
+with open('linear_regression_model.pkl', 'wb') as f:
+    pickle.dump(lin_reg, f)
+
 
 print(X)

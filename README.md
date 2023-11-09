@@ -73,3 +73,7 @@ curl -X 'POST' \
 }'
 ```
 Vous pouvez également tester via la librairie requests (voir dans ./notebooks/client.ipynb).
+
+## inspiration pour écrire les test
+
+- https://github.com/pamelafox/scikitlearn-model-to-fastapi-app

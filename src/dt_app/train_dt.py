@@ -3,6 +3,7 @@ from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 import joblib
+import pickle
 
 # Étape 2: Charger les données Iris pour l'entrainement
 iris = load_iris()
@@ -17,6 +18,9 @@ tree_clf = DecisionTreeClassifier(max_depth=2)
 tree_clf.fit(X_train, y_train)
 
 # Étape 4: Sauvegarder le modèle entraîné
-joblib.dump(tree_clf, 'decision_tree_classifier.pkl')
+#joblib.dump(tree_clf, 'decision_tree_classifier.pkl') # few issues when loading
+
+with open('decision_tree_classifier.pkl', 'wb') as f:
+    pickle.dump(tree_clf, f)
 
 print(X)
