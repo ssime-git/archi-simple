@@ -1,11 +1,13 @@
 # archi-simple
-simple architecture pour Dockerriser 2 modèles de ML
+simple architecture pour Dockeriser 2 modèles de ML. Les étapes pour commencer
 
-## step 0: creating and activate venv (Optionnel)
+## Step 0: creating and activate venv (Optionnel)
+
+Peut servir d'environnement de test pour s'assurer tout marche bien. Mais vous pouvez également créer 2 environnements virtuels associé à chaque modèle (ce qui est recommandé pour des omdèles lourds).
 
 ```sh
 # creation sous windows
-python -m venv ven
+python -m venv venv
 
 # activation sous windows
 .\venv\Scripts\activate
@@ -70,4 +72,4 @@ curl -X 'POST' \
   ]
 }'
 ```
-Vous pouvez également tester via la librairie request.
+Vous pouvez également tester via la librairie requests (voir dans ./notebooks/client.ipynb).
