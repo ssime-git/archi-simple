@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  linear_regression_service:
+    build:
+      context: ./linear_regression_app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    container_name: linear_regression_api
+
+  decision_tree_service:
+    build:
+      context: ./dt_app
+      dockerfile: Dockerfile
+    ports:
+      - "8001:80"
+    container_name: decision_tree_api
