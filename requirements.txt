@@ -7,4 +7,3 @@ requests
 pytest
 httpx
 python-dotenv
-pickle

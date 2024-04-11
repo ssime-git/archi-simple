@@ -3,9 +3,6 @@ from pydantic import BaseModel
 import joblib
 import os
 
-# Charger le modèle de classificateur d'arbre de décision pré-entraîné
-#model = joblib.load('decision_tree_classifier.pkl')
-
 # Initialiser FastAPI
 app = FastAPI()
 

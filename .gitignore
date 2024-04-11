@@ -1,4 +1,7 @@
 venv/
+.venv/
 __pycache__/
 .vscode/
 .pytest_cache/
+.\src\dt_app\decision_tree_classifier.pkl
+.\src\linear_regression_app\linear_regression_model.pkl
