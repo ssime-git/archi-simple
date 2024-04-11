@@ -13,7 +13,7 @@ COPY decision_tree_classifier.pkl ./
 COPY decision_tree_api.py ./
 
 # Exposer le port sur lequel FastAPI va s'exécuter
-EXPOSE 80
+#EXPOSE 80
 
 # Exécuter l'API avec Uvicorn
-CMD ["uvicorn", "decision_tree_api:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "decision_tree_api:app", "--host", "0.0.0.0", "--port", "8001"]

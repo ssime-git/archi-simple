@@ -6,13 +6,35 @@ services:
       context: ./src/linear_regression_app
       dockerfile: Dockerfile
     ports:
-      - "8000:80"
+      - "8000:8000"
     container_name: linear_regression_api
+    networks:
+      - mynetwork
 
   decision_tree_service:
     build:
       context: ./src/dt_app
       dockerfile: Dockerfile
     ports:
-      - "8001:80"
+      - "8001:8001"
     container_name: decision_tree_api
+    networks:
+      - mynetwork
+
+  streamlit:
+    build:
+      context: ./src/streamlit_app
+      dockerfile: Dockerfile.streamlit
+    depends_on:
+      - linear_regression_service
+      - decision_tree_service
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./src/streamlit_app:/usr/src/app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

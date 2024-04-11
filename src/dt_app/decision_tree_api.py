@@ -21,7 +21,7 @@ def load_model():
     return model
 
 # Définir une route pour faire des prédictions
-@app.post("/predict")
+@app.post("/dt_predict") 
 async def predict(data: RequestData):
     model = load_model()
     prediction = model.predict([data.features])

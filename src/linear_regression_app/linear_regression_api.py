@@ -25,10 +25,9 @@ def load_model():
     return model
 
 # Définir une route pour faire des prédictions
-@app.post("/predict")
+@app.post("/linear_predict")  # Changed from @app.get to @app.post
 async def predict(data: RequestData):
     model = load_model()
-    # Convertir les données en un array numpy pour la prédiction
     features = np.array(data.features).reshape(-1, 1)
     prediction = model.predict(features)
     return {"prediction": prediction.tolist()}

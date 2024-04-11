@@ -1,9 +1,12 @@
 # archi-simple
-simple architecture pour Dockeriser 2 modèles de ML. Les étapes pour commencer
+Very basic simpel architecture with :
+- 2 ML models
+- 2 diferent API running in docker
+- 1 front end streamlit app to consume the model
 
 ## Step 0: creating and activate venv (Optionnel)
 
-Peut servir d'environnement de test pour s'assurer tout marche bien. Mais vous pouvez également créer 2 environnements virtuels associé à chaque modèle (ce qui est recommandé pour des omdèles lourds).
+Can be used as a test environment to ensure everything works well. However, you can also create 2 virtual environments associated with each model (which is recommended for heavy models).
 
 ```sh
 # creation sous windows
@@ -13,9 +16,11 @@ python -m venv venv
 .\venv\Scripts\activate
 ```
 
-La création du `venv` à la racine c'est pour installer un kernel de jupyter notebook, mais vous pouvez créer 2 environnements virtuels dans les dossiers de chacun des modèles.
+Creating the `venv` at the root is for installing a Jupyter notebook kernel, but you can create 2 virtual environments in the folders of each of the models.
 
-## Step 1: Train the models
+## Step 1: Train the model
+
+Important : Make sure to train the models before running the test
 
 ```sh
 cd .\src\dt_app\
@@ -50,29 +55,11 @@ Pour avoir une idée des valeurs
 ## Step 5: create and run the docker compose
 
 ```sh
-# LR
-curl -X 'POST' \
-  'http://localhost:8001/predict' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "features": [
-   5.1, 3.5,1.4,0.2
-  ]
-}'
-
-# DT
-curl -X 'POST' \
-  'http://localhost:8000/predict' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "features": [
-    1
-  ]
-}'
+docker compose up --build
 ```
-Vous pouvez également tester via la librairie requests (voir dans ./notebooks/client.ipynb).
+
+## Test
+Use the client notebook: ./notebooks/client.ipynb
 
 ## inspiration pour écrire les test
 
