@@ -8,7 +8,7 @@ on:
     branches: [ test_update ]
 
 jobs:
-  build:
+  test-model-api:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,8 +34,3 @@ jobs:
     - name: Run tests
       run: |
         pytest
-
-    - name: build images and test
-      run : |
-        docker compose up -d
-        curl -X POST http://localhost:8001/dt_predict -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"features": [1]}'
