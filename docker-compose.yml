@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   linear_regression_service:
     build:
